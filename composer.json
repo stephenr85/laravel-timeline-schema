@@ -20,7 +20,8 @@
         "orchestra/testbench": "^10.0",
         "pestphp/pest": "^3.0",
         "pestphp/pest-plugin-laravel": "^3.0",
-        "rushing/laravel-data-schemas": "*"
+        "rushing/laravel-data-schemas": "*",
+        "laravel/pint": "^1.0"
     },
     "suggest": {
         "rushing/laravel-data-schemas": "Project OTIO node objects to JSON Schema (OtioJsonSchemaGenerator) for LLM structured output."
@@ -57,5 +58,8 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "scripts": {
+        "pint": "@php -d memory_limit=512M vendor/bin/pint"
+    }
 }

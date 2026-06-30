@@ -7,6 +7,7 @@ namespace Rushing\TimelineSchema\Schema;
 use LogicException;
 use ReflectionClass;
 use Rushing\TimelineSchema\Attributes\OtioSchema;
+use Rushing\TimelineSchema\Contracts\OtioObject;
 use Rushing\TimelineSchema\Contracts\SchemaRegistry;
 use Rushing\TimelineSchema\Objects\Clip;
 use Rushing\TimelineSchema\Objects\ExternalReference;
@@ -19,7 +20,7 @@ use Rushing\TimelineSchema\Objects\Track;
 
 final class OtioSchemaRegistry implements SchemaRegistry
 {
-    /** @var array<string, class-string<\Rushing\TimelineSchema\Contracts\OtioObject>> */
+    /** @var array<string, class-string<OtioObject>> */
     private array $map = [];
 
     public function register(string $schema, string $class): void

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use Rushing\TimelineSchema\Objects\Clip;
 use Rushing\TimelineSchema\Schema\OtioJsonSchemaGenerator;
+use Spatie\LaravelData\Data;
 
 it('projects an OTIO object to JSON Schema with its authoring metadata', function () {
     $schema = (new OtioJsonSchemaGenerator)->generate(new ReflectionClass(Clip::class));
@@ -21,7 +22,7 @@ it('only claims OtioData subclasses', function () {
     $generator = new OtioJsonSchemaGenerator;
 
     expect($generator->canGenerate(new ReflectionClass(Clip::class)))->toBeTrue()
-        ->and($generator->canGenerate(new ReflectionClass(\Spatie\LaravelData\Data::class)))->toBeFalse();
+        ->and($generator->canGenerate(new ReflectionClass(Data::class)))->toBeFalse();
 });
 
 it('emits a strict LLM schema with x-* stripped and the object closed', function () {

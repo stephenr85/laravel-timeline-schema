@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Rushing\TimelineSchema\Support;
 
+use Rushing\TimelineSchema\Contracts\OtioValidator;
 use Spatie\LaravelData\Data;
 
 /**
- * The outcome of an {@see \Rushing\TimelineSchema\Contracts\OtioValidator} run.
+ * The outcome of an {@see OtioValidator} run.
  * `semantic` flags whether real temporal/schema validation actually ran (the
  * PHP-native default leaves it false — it only confirms the bytes parse).
  */

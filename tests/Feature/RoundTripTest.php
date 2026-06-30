@@ -6,8 +6,8 @@ use Rushing\TimelineSchema\Objects\Clip;
 use Rushing\TimelineSchema\Objects\ExternalReference;
 use Rushing\TimelineSchema\Objects\RationalTime;
 use Rushing\TimelineSchema\Objects\Stack;
-use Rushing\TimelineSchema\Objects\TimeRange;
 use Rushing\TimelineSchema\Objects\Timeline;
+use Rushing\TimelineSchema\Objects\TimeRange;
 use Rushing\TimelineSchema\Objects\Track;
 use Rushing\TimelineSchema\OtioHydrator;
 
