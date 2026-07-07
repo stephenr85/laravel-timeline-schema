@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Attributes\OtioField;
@@ -12,15 +10,15 @@ use Rushing\TimelineSchema\OtioHydrator;
  * A reference to external media by URL — a rendered clip's OUTPUT location.
  */
 #[OtioSchema('ExternalReference.1', 'A reference to external media by URL.')]
-final class ExternalReference extends OtioData
+class ExternalReference extends OtioData
 {
     public function __construct(
         #[OtioField('The media URL/URI.', example: 'file:///media/clip.wav')]
-        public readonly string $target_url = '',
+        public string $target_url = '',
         #[OtioField('The available range of the media, if known.', required: false)]
-        public readonly ?TimeRange $available_range = null,
+        public ?TimeRange $available_range = null,
         #[OtioField('Free-form, namespaced OTIO metadata.', required: false)]
-        public readonly array $metadata = [],
+        public array $metadata = [],
     ) {}
 
     public function toArray(): array

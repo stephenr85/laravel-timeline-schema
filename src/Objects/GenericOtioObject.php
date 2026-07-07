@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Contracts\OtioObject;
@@ -18,12 +16,12 @@ use Rushing\TimelineSchema\OtioHydrator;
  * `{}` objects is the caller's concern (PHP decodes `{}` to `[]`); the typed core
  * objects use {@see OtioData::obj()} to keep their own emit byte-stable.
  */
-final class GenericOtioObject implements OtioObject
+class GenericOtioObject implements OtioObject
 {
     /**
      * @param  array<string, mixed>  $data
      */
-    public function __construct(private readonly array $data) {}
+    public function __construct(private array $data) {}
 
     public function schema(): string
     {

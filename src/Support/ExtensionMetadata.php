@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Support;
 
 use LogicException;
@@ -16,7 +14,7 @@ use LogicException;
  * the one place that reads it. With no namespace configured the helper is inert
  * (reads return empty; writes throw) — `metadata` still round-trips verbatim.
  */
-final class ExtensionMetadata
+class ExtensionMetadata
 {
     public static function namespace(): ?string
     {

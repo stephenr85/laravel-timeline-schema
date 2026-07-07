@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Attributes\OtioField;
@@ -13,19 +11,19 @@ use Rushing\TimelineSchema\OtioHydrator;
  * form boundaries on a dedicated form track. A leaf object — no children.
  */
 #[OtioSchema('Marker.2', 'A marker annotating a range — the unit of section/form boundaries.')]
-final class Marker extends OtioData
+class Marker extends OtioData
 {
     public function __construct(
         #[OtioField('Marker label (e.g. the section name).', required: false)]
-        public readonly string $name = '',
+        public string $name = '',
         #[OtioField('Marker color label, e.g. RED, GREEN.', example: 'RED', required: false)]
-        public readonly string $color = 'RED',
+        public string $color = 'RED',
         #[OtioField('The annotated range.', required: false)]
-        public readonly ?TimeRange $marked_range = null,
+        public ?TimeRange $marked_range = null,
         #[OtioField('Free-form comment.', required: false)]
-        public readonly string $comment = '',
+        public string $comment = '',
         #[OtioField('Free-form, namespaced OTIO metadata.', required: false)]
-        public readonly array $metadata = [],
+        public array $metadata = [],
     ) {}
 
     public function toArray(): array

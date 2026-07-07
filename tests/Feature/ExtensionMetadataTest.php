@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use Rushing\TimelineSchema\Support\ExtensionMetadata;
 
 it('reads and writes extension truth under the configured namespace', function () {

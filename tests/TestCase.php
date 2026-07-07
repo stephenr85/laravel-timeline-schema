@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;

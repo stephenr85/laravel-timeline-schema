@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Attributes;
 
 use Attribute;
@@ -13,10 +11,10 @@ use Attribute;
  * class on hydrate. `description` feeds the JSON Schema projection.
  */
 #[Attribute(Attribute::TARGET_CLASS)]
-final class OtioSchema
+class OtioSchema
 {
     public function __construct(
-        public readonly string $name,
-        public readonly ?string $description = null,
+        public string $name,
+        public ?string $description = null,
     ) {}
 }

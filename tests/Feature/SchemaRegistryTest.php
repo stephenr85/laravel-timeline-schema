@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use Rushing\TimelineSchema\Contracts\SchemaRegistry;
 use Rushing\TimelineSchema\Objects\Clip;
 use Rushing\TimelineSchema\Objects\Marker;

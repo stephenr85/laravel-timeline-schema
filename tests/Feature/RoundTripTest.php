@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use Rushing\TimelineSchema\Objects\Clip;
 use Rushing\TimelineSchema\Objects\ExternalReference;
 use Rushing\TimelineSchema\Objects\RationalTime;

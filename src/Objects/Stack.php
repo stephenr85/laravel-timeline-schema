@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Attributes\OtioField;
@@ -14,7 +12,7 @@ use Rushing\TimelineSchema\OtioHydrator;
  * `markers` are polymorphic and managed outside the Data payload.
  */
 #[OtioSchema('Stack.1', 'A stack of simultaneous tracks — the timeline body.')]
-final class Stack extends OtioData
+class Stack extends OtioData
 {
     /** @var list<OtioObject> */
     private array $children = [];
@@ -24,11 +22,11 @@ final class Stack extends OtioData
 
     public function __construct(
         #[OtioField('Stack name (conventionally "tracks").', required: false)]
-        public readonly string $name = 'tracks',
+        public string $name = 'tracks',
         #[OtioField('Optional trim window over the stack.', required: false)]
-        public readonly ?TimeRange $source_range = null,
+        public ?TimeRange $source_range = null,
         #[OtioField('Free-form, namespaced OTIO metadata.', required: false)]
-        public readonly array $metadata = [],
+        public array $metadata = [],
     ) {}
 
     /** @return list<OtioObject> */

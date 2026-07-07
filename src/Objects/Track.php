@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Attributes\OtioField;
@@ -15,7 +13,7 @@ use Rushing\TimelineSchema\OtioHydrator;
  * markers and children are polymorphic, managed outside the Data payload.
  */
 #[OtioSchema('Track.1', 'An ordered lane of clips and gaps with a media kind.')]
-final class Track extends OtioData
+class Track extends OtioData
 {
     /** @var list<OtioObject> */
     private array $children = [];
@@ -25,13 +23,13 @@ final class Track extends OtioData
 
     public function __construct(
         #[OtioField('Track name / role.', required: false)]
-        public readonly string $name = '',
+        public string $name = '',
         #[OtioField('Media kind: "Video" or "Audio".', example: 'Audio', required: false)]
-        public readonly string $kind = 'Video',
+        public string $kind = 'Video',
         #[OtioField('Optional trim window over the track.', required: false)]
-        public readonly ?TimeRange $source_range = null,
+        public ?TimeRange $source_range = null,
         #[OtioField('Free-form, namespaced OTIO metadata.', required: false)]
-        public readonly array $metadata = [],
+        public array $metadata = [],
     ) {}
 
     /** @return list<OtioObject> */

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Attributes\OtioField;
@@ -13,18 +11,18 @@ use Rushing\TimelineSchema\OtioHydrator;
  * An empty span on a track — silence/black between clips.
  */
 #[OtioSchema('Gap.1', 'An empty span on a track (silence/black between clips).')]
-final class Gap extends OtioData
+class Gap extends OtioData
 {
     /** @var list<OtioObject> */
     private array $markers = [];
 
     public function __construct(
         #[OtioField('Gap name.', required: false)]
-        public readonly string $name = '',
+        public string $name = '',
         #[OtioField('The gap duration window.', required: false)]
-        public readonly ?TimeRange $source_range = null,
+        public ?TimeRange $source_range = null,
         #[OtioField('Free-form, namespaced OTIO metadata.', required: false)]
-        public readonly array $metadata = [],
+        public array $metadata = [],
     ) {}
 
     /** @return list<OtioObject> */

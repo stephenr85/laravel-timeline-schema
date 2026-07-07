@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Attributes\OtioField;
@@ -13,13 +11,13 @@ use Rushing\TimelineSchema\OtioHydrator;
  * of `source_range` (a clip's window into its media) and `marked_range`.
  */
 #[OtioSchema('TimeRange.1', 'A span: start_time + duration, both RationalTimes.')]
-final class TimeRange extends OtioData
+class TimeRange extends OtioData
 {
     public function __construct(
         #[OtioField('Where the span starts.', required: false)]
-        public readonly RationalTime $start_time = new RationalTime,
+        public RationalTime $start_time = new RationalTime,
         #[OtioField('How long the span lasts.', required: false)]
-        public readonly RationalTime $duration = new RationalTime,
+        public RationalTime $duration = new RationalTime,
     ) {}
 
     public function toArray(): array

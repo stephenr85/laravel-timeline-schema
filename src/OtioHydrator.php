@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema;
 
 use Rushing\TimelineSchema\Contracts\OtioObject;
@@ -14,9 +12,9 @@ use Rushing\TimelineSchema\Objects\GenericOtioObject;
  * into polymorphic children. Labels the registry doesn't know fall through to a
  * lossless {@see GenericOtioObject} so unfamiliar OTIO survives the round-trip.
  */
-final class OtioHydrator
+class OtioHydrator
 {
-    public function __construct(private readonly SchemaRegistry $registry) {}
+    public function __construct(private SchemaRegistry $registry) {}
 
     /**
      * @param  array<string, mixed>  $data

@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Attributes\OtioField;
@@ -17,7 +15,7 @@ use Rushing\TimelineSchema\OtioHydrator;
  * and managed outside the Data payload; it defaults to MissingReference.
  */
 #[OtioSchema('Clip.2', 'A clip referencing media over a source time range.')]
-final class Clip extends OtioData
+class Clip extends OtioData
 {
     private OtioObject $media_reference;
 
@@ -26,11 +24,11 @@ final class Clip extends OtioData
 
     public function __construct(
         #[OtioField('Clip name.', required: false)]
-        public readonly string $name = '',
+        public string $name = '',
         #[OtioField('The clip window into its media.', required: false)]
-        public readonly ?TimeRange $source_range = null,
+        public ?TimeRange $source_range = null,
         #[OtioField('Free-form, namespaced OTIO metadata (the host extension carrier).', required: false)]
-        public readonly array $metadata = [],
+        public array $metadata = [],
     ) {
         $this->media_reference = new MissingReference;
     }

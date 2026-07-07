@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Objects;
 
 use Rushing\TimelineSchema\Attributes\OtioField;
@@ -14,17 +12,17 @@ use Rushing\TimelineSchema\OtioHydrator;
  * Spatie never tries to hydrate it.
  */
 #[OtioSchema('Timeline.1', 'The root OTIO object: a named timeline wrapping a tracks Stack.')]
-final class Timeline extends OtioData
+class Timeline extends OtioData
 {
     private Stack $tracks;
 
     public function __construct(
         #[OtioField('Human-readable timeline name.', required: false)]
-        public readonly string $name = '',
+        public string $name = '',
         #[OtioField('Optional global/wall-clock start time.', required: false)]
-        public readonly ?RationalTime $global_start_time = null,
+        public ?RationalTime $global_start_time = null,
         #[OtioField('Free-form, namespaced OTIO metadata.', required: false)]
-        public readonly array $metadata = [],
+        public array $metadata = [],
     ) {
         $this->tracks = new Stack;
     }

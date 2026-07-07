@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Rushing\TimelineSchema\Schema;
 
 use LogicException;
@@ -18,7 +16,7 @@ use Rushing\TimelineSchema\Objects\Stack;
 use Rushing\TimelineSchema\Objects\Timeline;
 use Rushing\TimelineSchema\Objects\Track;
 
-final class OtioSchemaRegistry implements SchemaRegistry
+class OtioSchemaRegistry implements SchemaRegistry
 {
     /** @var array<string, class-string<OtioObject>> */
     private array $map = [];

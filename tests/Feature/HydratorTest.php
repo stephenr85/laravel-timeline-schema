@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 use Rushing\TimelineSchema\Objects\GenericOtioObject;
 use Rushing\TimelineSchema\Objects\Track;
 use Rushing\TimelineSchema\OtioHydrator;
