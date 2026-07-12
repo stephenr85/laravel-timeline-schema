@@ -4,7 +4,7 @@ namespace Rushing\TimelineSchema\Schema;
 
 use ReflectionClass;
 use ReflectionProperty;
-use Rushing\LaravelDataSchemas\Generators\JsonSchemaGenerator;
+use Schemastud\DataSchemas\Generators\JsonSchemaGenerator;
 use Rushing\TimelineSchema\Attributes\OtioField;
 use Rushing\TimelineSchema\Attributes\OtioSchema;
 use Rushing\TimelineSchema\Objects\OtioData;

@@ -20,11 +20,11 @@
         "orchestra/testbench": "^10.0",
         "pestphp/pest": "^3.0",
         "pestphp/pest-plugin-laravel": "^3.0",
-        "rushing/laravel-data-schemas": "*",
+        "schemastud/laravel-data-schemas": "*",
         "laravel/pint": "^1.0"
     },
     "suggest": {
-        "rushing/laravel-data-schemas": "Project OTIO node objects to JSON Schema (OtioJsonSchemaGenerator) for LLM structured output."
+        "schemastud/laravel-data-schemas": "Project OTIO node objects to JSON Schema (OtioJsonSchemaGenerator) for LLM structured output."
     },
     "repositories": {
         "laravel-data-schemas": {

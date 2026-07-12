@@ -3,7 +3,7 @@
 namespace Rushing\TimelineSchema\Tests;
 
 use Orchestra\Testbench\TestCase as Orchestra;
-use Rushing\LaravelDataSchemas\LaravelDataSchemasServiceProvider;
+use Schemastud\DataSchemas\LaravelDataSchemasServiceProvider;
 use Rushing\TimelineSchema\TimelineSchemaServiceProvider;
 use Spatie\LaravelData\LaravelDataServiceProvider;
 
