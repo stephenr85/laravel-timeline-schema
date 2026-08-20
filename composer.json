@@ -29,7 +29,7 @@
     "repositories": {
         "laravel-data-schemas": {
             "type": "path",
-            "url": "../laravel-data-schemas",
+            "url": "../../schemastud/laravel-data-schemas",
             "options": {
                 "symlink": true
             }
