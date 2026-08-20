@@ -21,19 +21,11 @@
         "pestphp/pest": "^3.0",
         "pestphp/pest-plugin-laravel": "^3.0",
         "schemastud/laravel-data-schemas": "*",
-        "laravel/pint": "^1.0"
+        "laravel/pint": "^1.0",
+        "wikimedia/composer-merge-plugin": "^2.1"
     },
     "suggest": {
         "schemastud/laravel-data-schemas": "Project OTIO node objects to JSON Schema (OtioJsonSchemaGenerator) for LLM structured output."
-    },
-    "repositories": {
-        "laravel-data-schemas": {
-            "type": "path",
-            "url": "../../schemastud/laravel-data-schemas",
-            "options": {
-                "symlink": true
-            }
-        }
     },
     "autoload": {
         "psr-4": {
@@ -50,11 +42,17 @@
             "providers": [
                 "Rushing\\TimelineSchema\\TimelineSchemaServiceProvider"
             ]
+        },
+        "merge-plugin": {
+            "include": [
+                "composer.local.json"
+            ]
         }
     },
     "config": {
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "wikimedia/composer-merge-plugin": true
         }
     },
     "minimum-stability": "dev",

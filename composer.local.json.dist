@@ -1,0 +1,39 @@
+{
+    "repositories": {
+        "rushing/laravel-pipeline-registry": {
+            "type": "path",
+            "url": "../../rushing/laravel-pipeline-registry",
+            "options": {
+                "symlink": true
+            }
+        },
+        "rushing/laravel-popcorn": {
+            "type": "path",
+            "url": "../../rushing/laravel-popcorn",
+            "options": {
+                "symlink": true
+            }
+        },
+        "rushing/php-popcorn": {
+            "type": "path",
+            "url": "../../rushing/php-popcorn",
+            "options": {
+                "symlink": true
+            }
+        },
+        "schemastud/laravel-data-schemas": {
+            "type": "path",
+            "url": "../../schemastud/laravel-data-schemas",
+            "options": {
+                "symlink": true
+            }
+        },
+        "schemastud/php-json-ns": {
+            "type": "path",
+            "url": "../../schemastud/php-json-ns",
+            "options": {
+                "symlink": true
+            }
+        }
+    }
+}
