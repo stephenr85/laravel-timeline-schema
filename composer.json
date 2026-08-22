@@ -59,5 +59,11 @@
     "prefer-stable": true,
     "scripts": {
         "pint": "@php -d memory_limit=512M vendor/bin/pint"
-    }
+    },
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/schemastud/laravel-data-schemas.git"
+        }
+    ]
 }
