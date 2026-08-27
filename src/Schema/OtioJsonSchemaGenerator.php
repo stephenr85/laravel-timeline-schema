@@ -4,10 +4,10 @@ namespace Rushing\TimelineSchema\Schema;
 
 use ReflectionClass;
 use ReflectionProperty;
-use Schemastud\DataSchemas\Generators\JsonSchemaGenerator;
 use Rushing\TimelineSchema\Attributes\OtioField;
 use Rushing\TimelineSchema\Attributes\OtioSchema;
 use Rushing\TimelineSchema\Objects\OtioData;
+use Schemastud\DataSchemas\Generators\JsonSchemaGenerator;
 
 /**
  * A laravel-data-schemas generator that understands the OTIO object model: it
