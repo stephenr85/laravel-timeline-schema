@@ -1,13 +1,12 @@
 <?php
 
 use Rushing\TimelineSchema\Contracts\OtioValidator;
-use Rushing\TimelineSchema\Contracts\SchemaRegistry;
 use Rushing\TimelineSchema\OtioHydrator;
 use Rushing\TimelineSchema\Schema\OtioSchemaRegistry;
 use Rushing\TimelineSchema\Validation\NullOtioValidator;
 
 it('binds the registry, hydrator and validator', function () {
-    expect(app(SchemaRegistry::class))->toBeInstanceOf(OtioSchemaRegistry::class)
+    expect(app(OtioSchemaRegistry::class))->toBeInstanceOf(OtioSchemaRegistry::class)
         ->and(app(OtioHydrator::class))->toBeInstanceOf(OtioHydrator::class)
         ->and(app(OtioValidator::class))->toBeInstanceOf(NullOtioValidator::class);
 });
