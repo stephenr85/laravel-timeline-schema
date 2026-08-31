@@ -2,7 +2,6 @@
 
 namespace Rushing\TimelineSchema;
 
-use Rushing\Popcorn\Registries\RegistryIndex;
 use Rushing\TimelineSchema\Contracts\OtioValidator;
 use Rushing\TimelineSchema\Schema\OtioSchemaRegistry;
 use Rushing\TimelineSchema\Validation\NullOtioValidator;
@@ -40,16 +39,5 @@ class TimelineSchemaServiceProvider extends PackageServiceProvider
         $this->app->singleton(OtioValidator::class, NullOtioValidator::class);
     }
 
-    public function packageBooted(): void
-    {
-        // An owner registers DOWN into the index from its own boot; the index never reaches up.
-        //
-        // Described in `booted` rather than `registering` so the singleton above is resolved once, and
-        // the instance the index holds is the same one every consumer resolves — the identity property
-        // that a fresh, auto-resolvable instance silently breaks.
-        $this->app->make(RegistryIndex::class)->describe(
-            $this->app->make(OtioSchemaRegistry::class),
-            by: self::class,
-        );
-    }
+    public function packageBooted(): void {}
 }
