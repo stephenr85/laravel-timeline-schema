@@ -4,7 +4,9 @@ namespace Rushing\TimelineSchema\Schema;
 
 use LogicException;
 use ReflectionClass;
+use Rushing\Popcorn\Registries\Authorizer;
 use Rushing\Popcorn\Registries\BasicRegistry;
+use Rushing\Popcorn\Registries\Gated;
 use Rushing\Popcorn\Registries\IsRegistry;
 use Rushing\Popcorn\Registries\OnDuplicate;
 use Rushing\Popcorn\Registries\Optionality;
@@ -76,7 +78,7 @@ use Rushing\TimelineSchema\Objects\Track;
         .'was a plain array assignment, and a host overriding a built-in OTIO type with its own subclass '
         .'is a supported act.',
 )]
-class OtioSchemaRegistry implements Registry
+class OtioSchemaRegistry implements Gated, Registry
 {
     /**
      * The OTIO core types this package ships. Value objects (`RationalTime`, `TimeRange`) are hydrated
@@ -225,5 +227,12 @@ class OtioSchemaRegistry implements Registry
     public function unfiltered(): Registry
     {
         return $this->schemas->unfiltered();
+    }
+
+    public function authorizeWith(?Authorizer $authorizer): static
+    {
+        $this->schemas->authorizeWith($authorizer);
+
+        return $this;
     }
 }
