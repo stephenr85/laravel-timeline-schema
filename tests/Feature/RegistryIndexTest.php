@@ -33,7 +33,15 @@ it('declares a complete #[IsRegistry] on the class that owns the keyspace', func
         ->and($declaration->of)->not->toBeEmpty();
 });
 
-it('records the describing provider as the registrant', function () {
+it('records the DECLARING class as the registrant, because there is no describing provider any more', function () {
+    // ⚠️ This asserted `TimelineSchemaServiceProvider::class` until registry-kernel 73's cutover, and the
+    // expectation is obsolete rather than the behaviour being wrong: **there is no describing provider**.
+    // Membership is now baked from the `#[IsRegistry]` on the class and resolved lazily, so the honest
+    // registrant is the class that declared the root. A bake cannot know which provider would have
+    // described it, and inventing one would be a worse answer than the true one.
+    //
+    // 29 D2 asked for a registrant vocabulary naming the package or provider; the bake is where that
+    // becomes derivable from the file path, and it is deliberately not taken here — see ticket 73.
     expect(app(RegistryIndex::class)->registrantOf(Key::of('otio.schemas')))
-        ->toBe(TimelineSchemaServiceProvider::class);
+        ->toBe(OtioSchemaRegistry::class);
 })->skip(fn () => ! method_exists(RegistryIndex::class, 'registrantOf'), 'RecordsRegistrants not available in this popcorn.');
