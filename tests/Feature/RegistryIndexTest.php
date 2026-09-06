@@ -29,8 +29,7 @@ it('declares a complete #[IsRegistry] on the class that owns the keyspace', func
 
     expect($declaration->root)->toBe('otio.schemas')
         ->and($declaration->entryType)->toBe(OtioObject::class)
-        ->and($declaration->arity)->not->toBeEmpty()
-        ->and($declaration->of)->not->toBeEmpty();
+        ->and($declaration->description)->not->toBeEmpty();
 });
 
 it('records the DECLARING class as the registrant, because there is no describing provider any more', function () {

@@ -11,7 +11,6 @@ use Rushing\Popcorn\Registries\IsRegistry;
 use Rushing\Popcorn\Registries\OnDuplicate;
 use Rushing\Popcorn\Registries\Optionality;
 use Rushing\Popcorn\Registries\Registry;
-use Rushing\Popcorn\Registries\RegistryArity;
 use Rushing\Popcorn\Registries\RegistryKey;
 use Rushing\TimelineSchema\Attributes\OtioSchema;
 use Rushing\TimelineSchema\Contracts\OtioObject;
@@ -67,16 +66,10 @@ use Rushing\TimelineSchema\Objects\Track;
  */
 #[IsRegistry(
     root: 'otio.schemas',
-    of: 'OTIO object types — one concrete OtioObject class per OTIO_SCHEMA label, so a document hydrates into typed nodes',
-    arity: RegistryArity::PickOne,
     entryType: OtioObject::class,
     onDuplicate: OnDuplicate::Supersede,
     optionality: Optionality::Optional,
-    note: 'Keys are OpenTimelineIO labels (`Timeline.1`), held as consumer-owned OtioSchemaKeys and '
-        .'never root-stamped, so this branch is reachable through the index and not through pop() '
-        .'(registry-kernel 58 D5). Supersede records the behaviour this class always had — registration '
-        .'was a plain array assignment, and a host overriding a built-in OTIO type with its own subclass '
-        .'is a supported act.',
+    description: 'OTIO object types — one concrete OtioObject class per OTIO_SCHEMA label, so a document hydrates into typed nodes. Keys are OpenTimelineIO labels (`Timeline.1`), held as consumer-owned OtioSchemaKeys and never root-stamped, so this branch is reachable through the index and not through pop() (registry-kernel 58 D5). Supersede records the behaviour this class always had — registration was a plain array assignment, and a host overriding a built-in OTIO type with its own subclass is a supported act.',
 )]
 class OtioSchemaRegistry implements Gated, Registry
 {
