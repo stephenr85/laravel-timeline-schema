@@ -1,0 +1,29 @@
+{
+    "OTIO_SCHEMA": "Clip.2",
+    "metadata": {},
+    "name": "native multi-reference control",
+    "source_range": null,
+    "effects": [],
+    "markers": [],
+    "enabled": true,
+    "color": null,
+    "media_references": {
+        "camera": {
+            "OTIO_SCHEMA": "ExternalReference.1",
+            "metadata": {},
+            "name": "",
+            "available_range": null,
+            "available_image_bounds": null,
+            "target_url": "file:///camera.mov"
+        },
+        "proxy": {
+            "OTIO_SCHEMA": "ExternalReference.1",
+            "metadata": {},
+            "name": "",
+            "available_range": null,
+            "available_image_bounds": null,
+            "target_url": "file:///proxy.mov"
+        }
+    },
+    "active_media_reference_key": "proxy"
+}

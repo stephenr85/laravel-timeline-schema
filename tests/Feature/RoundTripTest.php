@@ -33,7 +33,7 @@ it('emits a single-track song stack as valid OTIO with OTIO_SCHEMA discriminator
     expect($otio['tracks']['children'][0]['OTIO_SCHEMA'])->toBe('Track.1');
     expect($otio['tracks']['children'][0]['kind'])->toBe('Audio');
     expect($otio['tracks']['children'][0]['children'][0]['OTIO_SCHEMA'])->toBe('Clip.2');
-    expect($otio['tracks']['children'][0]['children'][0]['media_reference']['OTIO_SCHEMA'])->toBe('ExternalReference.1');
+    expect($otio['tracks']['children'][0]['children'][0]['media_references']['DEFAULT_MEDIA']['OTIO_SCHEMA'])->toBe('ExternalReference.1');
 });
 
 it('round-trips emit -> hydrate -> emit byte-identically', function () {

@@ -11,8 +11,11 @@ it('projects an OTIO object to JSON Schema with its authoring metadata', functio
         ->and($schema['description'])->toContain('clip')
         ->and($schema['properties'])->toHaveKeys(['name', 'source_range', 'metadata']);
 
-    // source_range resolves to the TimeRange definition.
-    expect($schema['properties']['source_range'])->toHaveKey('$ref');
+    // The nullable source range resolves to TimeRange and explicitly permits null.
+    expect($schema['properties']['source_range']['anyOf'])->toContain(
+        ['$ref' => '#/$defs/TimeRange'],
+        ['type' => 'null'],
+    );
     expect($schema['$defs'])->toHaveKey('TimeRange');
 });
 
