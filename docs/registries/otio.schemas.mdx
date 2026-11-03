@@ -1,0 +1,82 @@
+---
+title: OTIO object types
+segment: otio.schemas
+nav_order: 100
+excerpt: The map from an OpenTimelineIO OTIO_SCHEMA label (Timeline.1, Clip.2) to the typed PHP class that models it.
+---
+
+# OTIO object types
+
+`otio.schemas` maps an **OpenTimelineIO `OTIO_SCHEMA` label**, such as `Timeline.1` or `Clip.2`, to
+the `OtioObject` class that models it. Every object in an `.otio` document carries its label, and
+`OtioHydrator` reads this registry to decide which class each object hydrates into. That is how a
+document becomes a tree of typed nodes rather than nested arrays.
+
+{/* registry-facts:start — generated from the #[IsRegistry] declaration by `splicewire:beam:docs:registries:scaffold`. Rerun the command; do not edit between these markers. */}
+
+- **Root:** `otio.schemas`
+- **Entries:** `Rushing\TimelineSchema\Contracts\OtioObject`
+- **Duplicate keys:** Supersede — a later registration under a taken key replaces the earlier entry, in its place
+- **Population:** Optional — an empty registry is normal
+- **Order:** `100` (display order, ascending)
+- **Declared by:** `Rushing\TimelineSchema\Schema\OtioSchemaRegistry`
+
+{/* registry-facts:end */}
+
+## What ships
+
+The package's service provider registers the OTIO core types: `Timeline.1`, `Stack.1`, `Track.1`,
+`Clip.2`, `Gap.1`, `Marker.2`, `ExternalReference.1` and `MissingReference.1`. `RationalTime` and
+`TimeRange` aren't registered: they're value objects that their parents hydrate directly.
+
+## Unknown labels pass through
+
+A label nobody registered isn't an error. The hydrator keeps that object as a `GenericOtioObject`,
+which writes back out exactly what it read, so a document using another tool's schema types
+survives a round trip through your application unchanged.
+
+## Adding a type
+
+Model your type as a class with an `#[OtioSchema]` attribute naming its label, and register it.
+`registerClass()` reads the label off the attribute:
+
+```php
+use Rushing\TimelineSchema\Attributes\OtioSchema;
+use Rushing\TimelineSchema\Objects\OtioData;
+use Rushing\TimelineSchema\Schema\OtioSchemaRegistry;
+
+#[OtioSchema('Transition.1', 'A transition between two adjacent items.')]
+class Transition extends OtioData { … }
+
+$this->app->make(OtioSchemaRegistry::class)->registerClass(Transition::class);
+```
+
+`register('Transition.1', Transition::class)` does the same with the label spelled out.
+
+## Keys
+
+Labels are OpenTimelineIO's own spelling: a capitalized name, a dot and a version number. The
+registry stores them verbatim, so `all()` returns them exactly as they appear in `.otio` JSON.
+Because the dot is a version separator rather than a path, these keys aren't prefixed with the
+`otio.schemas` root the way other registries' keys are.
+
+## Reading it
+
+- `classFor($label)` returns the class or `null`, and also returns `null` for a malformed label.
+  This is the read the hydrator uses, because labels come from documents.
+- `has($label)` answers `false` for a malformed label instead of throwing, for the same reason.
+- `resolve($label)` throws when the label isn't registered.
+
+## Duplicates
+
+The policy is **supersede**: registering a taken label replaces its class, so you can swap in a
+subclass of a core type, such as a `Clip` with extra behaviour, for every document you hydrate.
+
+## Going deeper
+
+The source is
+[`OtioSchemaRegistry`](https://github.com/stephenr85/laravel-timeline-schema/blob/main/src/Schema/OtioSchemaRegistry.php);
+the hydrator is
+[`OtioHydrator`](https://github.com/stephenr85/laravel-timeline-schema/blob/main/src/OtioHydrator.php).
+[OTIO compatibility notes](https://github.com/stephenr85/laravel-timeline-schema/blob/main/docs/otio-compatibility.md)
+record what's been verified against native OpenTimelineIO.
