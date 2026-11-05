@@ -71,8 +71,9 @@ Because the dot is a version separator rather than a path, these keys aren't pre
 
 ## Duplicates
 
-The policy is **supersede**: registering a taken label replaces its class, so you can swap in a
-subclass of a core type, such as a `Clip` with extra behaviour, for every document you hydrate.
+The [**duplicate-key policy**](/beam/docs/foundations/registries#key-policies) is
+**supersede**: registering a taken label replaces its class, so you can swap in a subclass of a core
+type, such as a `Clip` with extra behaviour, for every document you hydrate.
 
 ## Going deeper
 
