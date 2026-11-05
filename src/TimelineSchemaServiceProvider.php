@@ -2,6 +2,7 @@
 
 namespace Rushing\TimelineSchema;
 
+use Rushing\Popcorn\Registries\ScopesRegistrant;
 use Rushing\TimelineSchema\Contracts\OtioValidator;
 use Rushing\TimelineSchema\Schema\OtioSchemaRegistry;
 use Rushing\TimelineSchema\Validation\NullOtioValidator;
@@ -10,6 +11,14 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class TimelineSchemaServiceProvider extends PackageServiceProvider
 {
+    use ScopesRegistrant;
+
+    /** Every registry write in register()/boot() that names no `$by` records this package. */
+    protected function registrant(): string
+    {
+        return 'rushing/laravel-timeline-schema';
+    }
+
     public function configurePackage(Package $package): void
     {
         $package

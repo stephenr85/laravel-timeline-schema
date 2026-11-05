@@ -10,6 +10,7 @@ use Rushing\Popcorn\Registries\Gated;
 use Rushing\Popcorn\Registries\IsRegistry;
 use Rushing\Popcorn\Registries\OnKeyDuplicate;
 use Rushing\Popcorn\Registries\PopulationRequirement;
+use Rushing\Popcorn\Registries\Registrant;
 use Rushing\Popcorn\Registries\Registry;
 use Rushing\Popcorn\Registries\RegistryKey;
 use Rushing\TimelineSchema\Attributes\OtioSchema;
@@ -126,7 +127,7 @@ class OtioSchemaRegistry implements Gated, Registry
             throw new LogicException($class.' must declare an #[OtioSchema] attribute to be registered.');
         }
 
-        return $this->register($attrs[0]->newInstance()->name, $class, by: self::class);
+        return $this->register($attrs[0]->newInstance()->name, $class, by: Registrant::fromClass($class));
     }
 
     /** Seed the built-in OTIO core types — see {@see BUILT_INS}. */
