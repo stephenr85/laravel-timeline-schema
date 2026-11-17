@@ -13,7 +13,7 @@
         "php": "^8.3",
         "illuminate/contracts": "^11.0|^12.0|^13.0",
         "illuminate/support": "^11.0|^12.0|^13.0",
-        "schemastud/laravel-data-schemas": "^1.0",
+        "schemastud/laravel-data-schemas": "dev-main",
         "rushing/laravel-popcorn": "dev-main",
         "spatie/laravel-data": "^4.9",
         "spatie/laravel-package-tools": "^1.16"
@@ -60,41 +60,6 @@
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "../../rushing/laravel-pipeline-registry",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "../../rushing/laravel-popcorn",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "../../rushing/php-popcorn",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "../../schemastud/laravel-data-schemas",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
-            "type": "path",
-            "url": "../../schemastud/php-json-ns",
-            "options": {
-                "symlink": true
-            }
-        },
-        {
             "type": "git",
             "url": "https://github.com/schemastud/laravel-data-schemas.git"
         },
@@ -105,6 +70,14 @@
         {
             "type": "git",
             "url": "https://github.com/stephenr85/php-popcorn.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/stephenr85/laravel-pipeline-registry.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/schemastud/php-json-ns.git"
         }
     ]
 }

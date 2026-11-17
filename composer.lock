@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ea89a40fdb6d88d4eaea57549a75b7d",
+    "content-hash": "437600c9bb147d9b676ec09589204489",
     "packages": [
         {
             "name": "brick/math",
@@ -3612,10 +3612,10 @@
         {
             "name": "rushing/laravel-pipeline-registry",
             "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../../rushing/laravel-pipeline-registry",
-                "reference": "e7a5716f245c8088970ed7f84362ecbba42c2193"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephenr85/laravel-pipeline-registry.git",
+                "reference": "83b5717afc5c1aff23f3759f37d87d9124f8b059"
             },
             "require": {
                 "illuminate/console": "^11.0|^12.0|^13.0",
@@ -3632,6 +3632,7 @@
                 "pestphp/pest": "^2.0|^3.0",
                 "wikimedia/composer-merge-plugin": "^2.1"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -3660,7 +3661,7 @@
             },
             "scripts": {
                 "test": [
-                    "vendor/bin/pest"
+                    "@php vendor/bin/pest"
                 ],
                 "pint": [
                     "@php -d memory_limit=512M vendor/bin/pint"
@@ -3682,18 +3683,15 @@
                 "registry",
                 "stages"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-11-05T17:23:02+00:00"
         },
         {
             "name": "rushing/laravel-popcorn",
             "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../../rushing/laravel-popcorn",
-                "reference": "27042a76fa70e83d35a3609366165d597effb8ec"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephenr85/laravel-popcorn.git",
+                "reference": "37a67aa847d6e72e76f356814be39e2dfafb8b2b"
             },
             "require": {
                 "illuminate/contracts": "^11.0|^12.0|^13.0",
@@ -3708,6 +3706,7 @@
                 "pestphp/pest": "^3.0",
                 "phpstan/phpstan": "^2.2"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3738,7 +3737,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -3755,18 +3754,15 @@
                 "registry",
                 "strategy"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-11-05T22:36:57+00:00"
         },
         {
             "name": "rushing/php-popcorn",
             "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../../rushing/php-popcorn",
-                "reference": "5a5f3b9492af397b48c022fad57b3fc9596e7c4f"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stephenr85/php-popcorn.git",
+                "reference": "011c15ca2c89d65f28970646ba61e40a16c89b0b"
             },
             "require": {
                 "php": "^8.3",
@@ -3775,8 +3771,10 @@
             "require-dev": {
                 "laravel/pint": "^1.0",
                 "pestphp/pest": "^3.0",
-                "phpstan/phpstan": "^2.2"
+                "phpstan/phpstan": "^2.2",
+                "rushing/php-package-topology": "dev-main"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "package-topology": {
@@ -3807,7 +3805,7 @@
                 ]
             },
             "license": [
-                "proprietary"
+                "MIT"
             ],
             "authors": [
                 {
@@ -3823,18 +3821,15 @@
                 "registry",
                 "strategy"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-11-09T17:38:11+00:00"
         },
         {
             "name": "schemastud/laravel-data-schemas",
             "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../../schemastud/laravel-data-schemas",
-                "reference": "6bf20a0d330e9688493e1f828258ade6b119e12e"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schemastud/laravel-data-schemas.git",
+                "reference": "a704f5fe058a4f80f3acce77689a68671273971f"
             },
             "require": {
                 "galbar/jsonpath": "^3.0",
@@ -3855,8 +3850,13 @@
                 "laravel/pint": "^1.0",
                 "orchestra/testbench": "^9.0|^10.0|^11.0",
                 "phpunit/phpunit": "^11.0|^12.0",
+                "spatie/typescript-transformer": "^3.3",
                 "wikimedia/composer-merge-plugin": "^2.1"
             },
+            "suggest": {
+                "spatie/typescript-transformer": "^3.3 required when registering the optional MorphUnionTransformer."
+            },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -3875,7 +3875,8 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Schemastud\\DataSchemas\\": "src/"
+                    "Schemastud\\DataSchemas\\": "src/",
+                    "Rushing\\LaravelDataSchemasScribe\\Attributes\\": "src/Http/Attributes/"
                 }
             },
             "autoload-dev": {
@@ -3884,8 +3885,14 @@
                 }
             },
             "scripts": {
+                "test": [
+                    "@php vendor/bin/phpunit"
+                ],
                 "pint": [
                     "@php -d memory_limit=512M vendor/bin/pint"
+                ],
+                "docs:examples": [
+                    "@php tests/regenerate-data-examples.php"
                 ]
             },
             "license": [
@@ -3906,18 +3913,15 @@
                 "spatie",
                 "validation"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-11-12T22:11:47+00:00"
         },
         {
             "name": "schemastud/php-json-ns",
             "version": "dev-main",
-            "dist": {
-                "type": "path",
-                "url": "../../schemastud/php-json-ns",
-                "reference": "03851f3c0bd8e28d7d99550b2f83240bb11f687b"
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schemastud/php-json-ns.git",
+                "reference": "ef640eb95aa62874c5f1ba0edf198607c8975592"
             },
             "require": {
                 "opis/json-schema": "^2.3",
@@ -3926,9 +3930,11 @@
             },
             "require-dev": {
                 "laravel/pint": "^1.0",
-                "pestphp/pest": "^3.0",
+                "pestphp/pest": "^4.0",
+                "rushing/php-package-topology": "dev-main",
                 "wikimedia/composer-merge-plugin": "^2.1"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "package-topology": {
@@ -3978,10 +3984,7 @@
                 "schema",
                 "vocabulary"
             ],
-            "transport-options": {
-                "symlink": true,
-                "relative": true
-            }
+            "time": "2026-10-19T17:37:55+00:00"
         },
         {
             "name": "spatie/laravel-data",
@@ -10718,7 +10721,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "rushing/laravel-popcorn": 20
+        "rushing/laravel-popcorn": 20,
+        "schemastud/laravel-data-schemas": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
